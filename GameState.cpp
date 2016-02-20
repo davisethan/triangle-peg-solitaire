@@ -19,25 +19,24 @@ GameState *GameState::CopyGameState(int pegCount) {
 }
 
 string GameState::PrintGameState(int pegCount) {
-  /*       0
-   *      1  2
-   *    3  4  5
-   *   6  7  8  9
-   * 10 11 12 13 14
-   */
-  string *strArr = new string[pegCount];
-  for (int i = 0; i < pegCount; i++) {
+	/*       0
+	 *      1  2
+	 *    3  4  5
+	 *   6  7  8  9
+	 * 10 11 12 13 14
+	 */
+	string *strArr = new string[pegCount];
+	for (int i = 0; i < pegCount; i++) {
 		strArr[i] = pegArr[i] ? "1" : "0";
 	}
 
-  string sequence = "    " + strArr[0] + "\n";
-  sequence += "   " + strArr[1] + " " + strArr[2] + "\n";
-  sequence += "  " + strArr[3] + " " + strArr[4] + " " + strArr[5] + "\n";
-  sequence += " " + strArr[6] + " " + strArr[7] + " " + strArr[8] + " " + strArr[9] + "\n";
-  sequence += strArr[10] + " " + strArr[11] + " " + strArr[12] + " " + strArr[13] + " " +
-  strArr[14] + "\n\n";
+	string sequence = "    " + strArr[0] + "\n";
+	sequence += "   " + strArr[1] + " " + strArr[2] + "\n";
+	sequence += "  " + strArr[3] + " " + strArr[4] + " " + strArr[5] + "\n";
+	sequence += " " + strArr[6] + " " + strArr[7] + " " + strArr[8] + " " + strArr[9] + "\n";
+	sequence += strArr[10] + " " + strArr[11] + " " + strArr[12] + " " + strArr[13] + " " + strArr[14] + "\n\n";
 
-  return sequence;
+	return sequence;
 }
 
 void GameState::RemovePeg(int pegIdx) {
@@ -48,9 +47,9 @@ void GameState::RemovePeg(int pegIdx) {
 
 void GameState::JumpPeg(int src, int adj, int remote) {
 	if (pegArr[src] && pegArr[adj] && !pegArr[remote]) {
-	  pegArr[src] = false;
-	  pegArr[adj] = false;
-	  pegArr[remote] = true;
+		pegArr[src] = false;
+		pegArr[adj] = false;
+		pegArr[remote] = true;
 	}
 }
 
@@ -69,7 +68,7 @@ GameState::~GameState() {
 }
 
 Sequence::Sequence(int pegCount) {
-  gameStateArr = (GameState **) malloc((pegCount - 2) * sizeof(GameState**));
+	gameStateArr = (GameState **) malloc((pegCount - 2) * sizeof(GameState**));
 }
 
 string Sequence::PrintSequence(int *solutionCount, int pegCount) {

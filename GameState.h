@@ -12,7 +12,7 @@ class GameState {
 		string PrintGameState(int pegCount);
 		void RemovePeg(int pegIdx);
 		void JumpPeg(int src, int adj, int remote);
-    int CountPegs(int pegCount);
+		int CountPegs(int pegCount);
 		~GameState();
 };
 
