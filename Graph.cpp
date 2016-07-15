@@ -1,36 +1,24 @@
 #include <iostream>
-#include "Graph.h"
+#include "graph.h"
 using namespace std;
 
 AdjListNode::AdjListNode(int dest) {
-	pegIdx = dest;
-	next = NULL;
+	this->peg = dest;
+	this->next = NULL;
 }
 
 Graph::Graph(int N) {
-	pegCount = N;
+	this->count = N;
 	AdjList *arr = new AdjList[N];
-	pegArr = arr;
+	this->pegs = arr;
 }
 
 void Graph::AddEdge(int src, int dest) {
 	AdjListNode *node = new AdjListNode(dest);
-	node->next = this->pegArr[src].head;
-	this->pegArr[src].head = node;
-}
-
-void Graph::PrintGraph() {
-	for (int v = 0; v < this->pegCount; v++) {
-		AdjListNode *pCrawl = this->pegArr[v].head;
-		cout << "Adjacency list of vertex " << v << ":\n\thead";
-		while(pCrawl) {
-			cout << " -> " << pCrawl->pegIdx;
-			pCrawl = pCrawl->next;
-		}
-		cout << endl;
-	}
+	node->next = this->pegs[src].head;
+	this->pegs[src].head = node;
 }
 
 Graph::~Graph() {
-	delete[] pegArr;
+	delete[] this->pegs;
 }

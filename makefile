@@ -1,13 +1,13 @@
-Game: Main.o Graph.o GameState.o
-	g++ -o Game Main.o Graph.o GameState.o
-Main.o: Main.cpp
-	g++ -c Main.cpp
-Graph.o: Graph.cpp
-	g++ -c Graph.cpp
-GameState.o: GameState.cpp
-	g++ -c GameState.cpp
+game: main.o graph.o gameState.o
+	g++ -o game main.o graph.o gameState.o
+main.o: main.cpp
+	g++ -c main.cpp
+graph.o: graph.cpp
+	g++ -c graph.cpp
+gameState.o: gameState.cpp
+	g++ -c gameState.cpp
 clean:
-	rm -f Game
+	rm -f game
 	rm -f *.o
 	rm -f *~
 	rm -f *#

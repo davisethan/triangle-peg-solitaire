@@ -1,62 +1,62 @@
 #include <iostream>
-#include "GameState.h"
+#include "gameState.h"
 using namespace std;
 
-GameState::GameState(int pegCount) {
-	bool *arr = new bool[pegCount];
-	for (int i = 0; i < pegCount; i++) {
+GameState::GameState(int count) {
+	bool *arr = new bool[count];
+	for (int i = 0; i < count; i++) {
 		arr[i] = true;
 	}
-	pegArr = arr;
+	this->pegs = arr;
 }
 
-GameState *GameState::CopyGameState(int pegCount) {
-	GameState *gameState = new GameState(pegCount);
-	for (int i = 0; i < pegCount; i++) {
-		gameState->pegArr[i] = this->pegArr[i];
+GameState *GameState::CopyGameState(int count) {
+	GameState *gameState = new GameState(count);
+	for (int i = 0; i < count; i++) {
+		gameState->pegs[i] = this->pegs[i];
 	}
 	return gameState;
 }
 
-string GameState::PrintGameState(int pegCount) {
+string GameState::PrintGameState(int count) {
 	/*       0
 	 *      1  2
 	 *    3  4  5
 	 *   6  7  8  9
 	 * 10 11 12 13 14
 	 */
-	string *strArr = new string[pegCount];
-	for (int i = 0; i < pegCount; i++) {
-		strArr[i] = pegArr[i] ? "1" : "0";
+	string *strs = new string[count];
+	for (int i = 0; i < count; i++) {
+		strs[i] = this->pegs[i] ? "1" : "0";
 	}
 
-	string sequence = "    " + strArr[0] + "\n";
-	sequence += "   " + strArr[1] + " " + strArr[2] + "\n";
-	sequence += "  " + strArr[3] + " " + strArr[4] + " " + strArr[5] + "\n";
-	sequence += " " + strArr[6] + " " + strArr[7] + " " + strArr[8] + " " + strArr[9] + "\n";
-	sequence += strArr[10] + " " + strArr[11] + " " + strArr[12] + " " + strArr[13] + " " + strArr[14] + "\n\n";
+	string sequence = "    " + strs[0] + "\n";
+	sequence += "   " + strs[1] + " " + strs[2] + "\n";
+	sequence += "  " + strs[3] + " " + strs[4] + " " + strs[5] + "\n";
+	sequence += " " + strs[6] + " " + strs[7] + " " + strs[8] + " " + strs[9] + "\n";
+	sequence += strs[10] + " " + strs[11] + " " + strs[12] + " " + strs[13] + " " + strs[14] + "\n\n";
 
 	return sequence;
 }
 
-void GameState::RemovePeg(int pegIdx) {
-	if (pegArr[pegIdx]) {
-		pegArr[pegIdx] = false;
+void GameState::RemovePeg(int peg) {
+	if (this->pegs[peg]) {
+		this->pegs[peg] = false;
 	}
 }
 
 void GameState::JumpPeg(int src, int adj, int remote) {
-	if (pegArr[src] && pegArr[adj] && !pegArr[remote]) {
-		pegArr[src] = false;
-		pegArr[adj] = false;
-		pegArr[remote] = true;
+	if (this->pegs[src] && this->pegs[adj] && !this->pegs[remote]) {
+		this->pegs[src] = false;
+		this->pegs[adj] = false;
+		this->pegs[remote] = true;
 	}
 }
 
-int GameState::CountPegs(int pegCount) {
+int GameState::CountPegs(int total) {
 	int count = 0;
-	for (int i = 0; i < pegCount; i++) {
-		if (pegArr[i]) {
+	for (int i = 0; i < total; i++) {
+		if (this->pegs[i]) {
 			count++;
 		}
 	}
@@ -64,27 +64,27 @@ int GameState::CountPegs(int pegCount) {
 }
 
 GameState::~GameState() {
-	delete[] pegArr;
+	delete[] this->pegs;
 }
 
-Sequence::Sequence(int pegCount) {
-	gameStateArr = (GameState **) malloc((pegCount - 2) * sizeof(GameState**));
+Sequence::Sequence(int count) {
+	this->states = (GameState **) malloc((count - 2) * sizeof(GameState**));
 }
 
-string Sequence::PrintSequence(int *solutionCount, int pegCount) {
-	(*solutionCount)++;
-	string solutionStr = to_string(*solutionCount);
-	string solutionMsg = "Solution " + solutionStr + "\n---------------\n";
+string Sequence::PrintSequence(int *solutions, int count) {
+	(*solutions)++;
+	string str = to_string(*solutions);
+	string msg = "[Solution " + str + "]\n";
 
-	for (int i = 0; i < pegCount - 1; i++) {
-		solutionMsg += gameStateArr[i]->PrintGameState(pegCount);
+	for (int i = 0; i < count - 1; i++) {
+		msg += this->states[i]->PrintGameState(count);
 	}
 
-	return solutionMsg;
+	return msg;
 }
 
 Sequence::~Sequence() {
-	for (int i = 0; gameStateArr[i] != NULL; i++) {
-		free(gameStateArr[i]);
+	for (int i = 0; this->states[i] != NULL; i++) {
+		free(this->states[i]);
 	}
 }

@@ -1,27 +1,27 @@
 using namespace std;
 
-#ifndef GameState_h
-#define GameState_h
+#ifndef gameState_h
+#define gameState_h
 
 class GameState {
 	public:
-		bool *pegArr;
+		bool *pegs;
 
-		GameState(int pegCount);
-		GameState *CopyGameState(int pegCount);
-		string PrintGameState(int pegCount);
-		void RemovePeg(int pegIdx);
+		GameState(int count);
+		GameState *CopyGameState(int count);
+		string PrintGameState(int count);
+		void RemovePeg(int peg);
 		void JumpPeg(int src, int adj, int remote);
-		int CountPegs(int pegCount);
+		int CountPegs(int total);
 		~GameState();
 };
 
 class Sequence {
 	public:
-		GameState **gameStateArr;
+		GameState **states;
 
-		Sequence(int pegCount);
-		string PrintSequence(int *solutionCount, int pegCount);
+		Sequence(int count);
+		string PrintSequence(int *solutions, int count);
 		~Sequence();
 };
 

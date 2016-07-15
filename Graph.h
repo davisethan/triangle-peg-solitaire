@@ -1,9 +1,9 @@
-#ifndef Graph_h
-#define Graph_h
+#ifndef graph_h
+#define graph_h
 
 class AdjListNode {
 	public:
-		int pegIdx;
+		int peg;
 		AdjListNode *next;
 
 		AdjListNode(int dest);
@@ -16,12 +16,11 @@ class AdjList {
 
 class Graph {
 	public:
-		int pegCount;
-		AdjList *pegArr;
+		int count;
+		AdjList *pegs;
 
 		Graph(int N);
 		void AddEdge(int src, int dest);
-		void PrintGraph();
 		~Graph();
 };
 

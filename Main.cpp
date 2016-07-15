@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Main.h"
-#include "Graph.h"
-#include "GameState.h"
+#include "main.h"
+#include "graph.h"
+#include "gameState.h"
 using namespace std;
 
 int main(int argc, char *argv[]) {
@@ -26,58 +26,45 @@ int main(int argc, char *argv[]) {
 	return EXIT_SUCCESS;
 }
 
-RecurseBoardData::RecurseBoardData(FILE *file, GameState *gameState, Sequence *sequence, Graph *adjGraph, Graph *remoteGraph, int *solutionCount) {
-	this->file = file;
-	this->gameState = gameState;
-	this->sequence = sequence;
-	this->adjGraph = adjGraph;
-	this->remoteGraph = remoteGraph;
-	this->solutionCount = solutionCount;
-}
-
 bool RecurseBoard(Graph *adjGraph, Graph *remoteGraph) {
 	char *gameSequence = (char *) "SoloNoble.txt";
 	FILE *gameSequenceFile = fopen(gameSequence, "w");
 
 	// Remove initial peg
-	int solutionCount = 0;
+	int solutions = 0;
 	for (int i = 0; i < PEG_COUNT; i++) {
 		GameState *gameState = new GameState(PEG_COUNT);
 		Sequence *sequence = new Sequence(PEG_COUNT);
 		gameState->RemovePeg(i);
-		RecurseBoardData *recurseBoardData = new RecurseBoardData(gameSequenceFile, gameState, sequence, adjGraph, remoteGraph, &solutionCount);
-		RecurseBoardHelper(recurseBoardData);
+		RecurseBoardHelper(gameSequenceFile, gameState, sequence, adjGraph, remoteGraph, &solutions);
 	}
 
 	fclose(gameSequenceFile);
 	return RECURSE_BOARD_SUCCESS;
 }
 
-void RecurseBoardHelper(RecurseBoardData *recurseBoardData) {
+void RecurseBoardHelper(FILE *file, GameState *gameState, Sequence *sequence, Graph *adjGraph, Graph *remoteGraph, int *solutions) {
 	// Record the game state
-	int pegCount = recurseBoardData->gameState->CountPegs(PEG_COUNT);
-	recurseBoardData->sequence->gameStateArr[PEG_COUNT - 1 - pegCount] = recurseBoardData->gameState;
+	int count = gameState->CountPegs(PEG_COUNT);
+	sequence->states[PEG_COUNT - 1 - count] = gameState;
 
 	// If only one peg remains, the game is won!
 	// Otherwise step through the board looking for a legal jump
-	if (pegCount == 1) {
-		fprintf(recurseBoardData->file, "%s", recurseBoardData->sequence->PrintSequence(recurseBoardData->solutionCount, PEG_COUNT).c_str());
+	if (count == 1) {
+		fprintf(file, "%s", sequence->PrintSequence(solutions, PEG_COUNT).c_str());
 	} else {
-		for (int srcIdx = 0; srcIdx < PEG_COUNT; srcIdx++) {
-			if (recurseBoardData->gameState->pegArr[srcIdx]) {
-				AdjListNode *adjNode = recurseBoardData->adjGraph->pegArr[srcIdx].head;
-				AdjListNode *remoteNode = recurseBoardData->remoteGraph->pegArr[srcIdx].head;
+		for (int src = 0; src < PEG_COUNT; src++) {
+			if (gameState->pegs[src]) {
+				AdjListNode *adjNode = adjGraph->pegs[src].head;
+				AdjListNode *remoteNode = remoteGraph->pegs[src].head;
 				while (adjNode && remoteNode) {
-					int adjIdx = adjNode->pegIdx;
-					int remoteIdx = remoteNode->pegIdx;
-					if(recurseBoardData->gameState->pegArr[adjIdx] && !recurseBoardData->gameState->pegArr[remoteIdx]) {
+					int adj = adjNode->peg;
+					int remote = remoteNode->peg;
+					if(gameState->pegs[adj] && !gameState->pegs[remote]) {
 						// Legal move found!
-						GameState *gameState = recurseBoardData->gameState;
-						GameState *gameStateCopy = recurseBoardData->gameState->CopyGameState(PEG_COUNT);
-						gameStateCopy->JumpPeg(srcIdx, adjIdx, remoteIdx);
-						recurseBoardData->gameState = gameStateCopy;
-						RecurseBoardHelper(recurseBoardData);
-						recurseBoardData->gameState = gameState;
+						GameState *gameStateCopy = gameState->CopyGameState(PEG_COUNT);
+						gameStateCopy->JumpPeg(src, adj, remote);
+						RecurseBoardHelper(file, gameStateCopy, sequence, adjGraph, remoteGraph, solutions);
 					}
 					adjNode = adjNode->next;
 					remoteNode = remoteNode->next;
