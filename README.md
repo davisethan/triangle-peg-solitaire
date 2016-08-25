@@ -1,4 +1,8 @@
-Solo Noble
-===============
+# Triangle Solo Noble
 
-This program finds all solutions to the Triangle Solo Noble board game.
+*Finds all solutions to the Triangle Solo Noble board game*
+
+### Profile
+
+`$ node-gyp configure build`  
+`$ node index.js`
