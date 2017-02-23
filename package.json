@@ -1,0 +1,20 @@
+{
+  "name": "tsn",
+  "version": "1.0.0",
+  "description": "Finds all solutions to the Triangle Solo Noble board game",
+  "main": "index.js",
+  "dependencies": {
+    "mongodb": "^2.2.24",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecdavis15/TriangleSoloNoble.git"
+  },
+  "author": "Ethan Davis",
+  "license": "ISC",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/ecdavis15/TriangleSoloNoble/issues"
+  },
+  "homepage": "https://github.com/ecdavis15/TriangleSoloNoble#readme"
+}
