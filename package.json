@@ -4,17 +4,7 @@
   "description": "Finds all solutions to the Triangle Solo Noble board game",
   "main": "index.js",
   "dependencies": {
-    "async": "^2.0.1",
-    "debug": "^2.2.0",
-    "mongojs": "^2.4.0"
-  },
-  "devDependencies": {
-    "mocha": "^3.0.2"
-  },
-  "scripts": {
-    "install": "node-gyp rebuild",
-    "test": "mocha tsn-insert.js",
-    "start": "nodemon database.js"
+    "mongodb": "^2.2.24",
   },
   "repository": {
     "type": "git",
