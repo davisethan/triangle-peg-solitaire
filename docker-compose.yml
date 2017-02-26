@@ -1,0 +1,15 @@
+webapp:
+  image: node:latest
+  working_dir: /opt/webapp
+  command: bash ./entrypoint.sh
+  ports:
+    - 8080:8080
+  volumes:
+    - ./:/opt/webapp
+  links:
+    - mongo
+
+mongo:
+  image: mongo:latest
+  ports:
+    - 27017:27017

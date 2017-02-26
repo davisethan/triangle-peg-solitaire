@@ -3,8 +3,9 @@ var MongoClient = require('mongodb').MongoClient
 
 var solutions = addon.main()
 
-MongoClient.connect('mongodb://localhost:27017/tsn', function(err, db) {
+MongoClient.connect('mongodb://mongo:27017/tsn', function(err, db) {
   if (err) {
+    console.log('connect error', err)
     process.exit(1)
   }
 
@@ -23,6 +24,7 @@ MongoClient.connect('mongodb://localhost:27017/tsn', function(err, db) {
 
   solutionsColl.insertMany(indexed, function(err) {
     if (err) {
+      console.log('insert error', err)
       process.exit(1)
     }
 

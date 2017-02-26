@@ -1,5 +1,4 @@
 var React = require('react')
-var ReactDOM = require('react-dom')
 var Solution = require('./solution')
 
 module.exports = React.createClass({
@@ -14,6 +13,7 @@ module.exports = React.createClass({
             <input type='text' name='solution' placeholder='solution' />
             <input type='submit' />
           </form>
+          <br />
           {
             solution ? <Solution solution={solution} /> : null
           }

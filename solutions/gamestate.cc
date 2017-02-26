@@ -1,4 +1,4 @@
-#include "gameState.h"
+#include "gamestate.h"
 
 GameState::GameState() {
 	for (int i = 0; i < NODES; i++)

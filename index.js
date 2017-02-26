@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 app.post('/solution', function(req, res) {
   var body = req.body
 
-  MongoClient.connect('mongodb://localhost:27017/tsn', function(err, db) {
+  MongoClient.connect('mongodb://mongo:27017/tsn', function(err, db) {
     if (err) {
       process.exit(1)
     }
