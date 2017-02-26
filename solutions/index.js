@@ -9,9 +9,14 @@ MongoClient.connect('mongodb://localhost:27017/tsn', function(err, db) {
   }
 
   var solutionsColl = db.collection('solutions')
+
+  solutionsColl.createIndex({
+    index: 1
+  })
+
   var indexed = solutions.map(function(solution, index) {
     return {
-      index: index + 1,
+      index: index + 1 + '',
       solution: solution
     }
   })

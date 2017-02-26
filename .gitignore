@@ -28,6 +28,6 @@
 *.app
 
 # Dependency directories
-build
-node_modules
+build/
+node_modules/
 *.log

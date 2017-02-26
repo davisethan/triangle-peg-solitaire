@@ -1,5 +1,8 @@
+dev:
+	node ./index.js
+
 solutions:
-	node solutions.js
+	node ./solutions/index.js
 
 install:
-	node-gyp rebuild
+	node-gyp --directory=./solutions rebuild
