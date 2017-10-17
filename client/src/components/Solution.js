@@ -41,7 +41,7 @@ export default class Solution extends React.Component {
             case 14:
               return <circle key={'' + i + j} cx='255' cy={135 + (180 * i)} r='15' fill={gameState ? 'blue' : 'green'} />
             default:
-              break
+              return
           }
         })
       })

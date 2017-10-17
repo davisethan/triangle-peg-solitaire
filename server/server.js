@@ -14,10 +14,13 @@ getMongo((err, db) => {
 
   const historyColl = db.collection('history')
   const solutionsColl = db.collection('solutions')
+  const rulesColl = db.collection('rules')
 
   app.use(bodyParser.json())
   app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
+    const webServerUrl = 'http://localhost:3000'
+
+    res.header('Access-Control-Allow-Origin', webServerUrl)
     res.header('Access-Control-Allow-Headers', 'Content-Type')
     next()
   })
@@ -50,6 +53,19 @@ getMongo((err, db) => {
       const solution = doc.solution
 
       res.json(solution)
+    })
+  })
+
+  app.get('/rules', (req, res) => {
+    const query = {}
+
+    rulesColl.findOne(query, (err, doc) => {
+      if (err) {
+        console.log('Read error. Exiting...')
+        process.exit(1)
+      }
+
+      res.json(doc)
     })
   })
 

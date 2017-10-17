@@ -62,6 +62,10 @@ body {
   text-align: center;
 }
 
+#rules-text {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #solution-container {
   background-color: white;
   border-style: solid;
@@ -71,6 +75,45 @@ body {
   margin: auto;
   text-align: center;
   padding: 40px 0px 0px 0px;
+}
+
+#play-container {
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  padding: 30px 30px 30px 30px;
+}
+
+#reset-container {
+  float: right;
+}
+
+#rules-container {
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  padding: 10px 30px 30px 30px;
+}
+
+#rules-standards-container {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+#rules-standards-table {
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+  padding: 20px 20px 20px 20px;
 }
 
 #no-match {
@@ -91,6 +134,16 @@ body {
 .paragraph {
   font-family: Arial, Helvetica, sans-serif;
   padding: 10px 20px 10px 20px;
+}
+
+.table-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.table-el {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px 0px 0px 0px;
 }
 
 .link-button {

@@ -7,11 +7,59 @@ export default class Navbar extends React.Component {
     let links
 
     switch (pathname) {
+      case '/play':
+        links = [
+          {
+            route: '/',
+            name: 'Home'
+          },
+          {
+            route: '/rules',
+            name: 'Rules'
+          },
+          {
+            route: '/solutions',
+            name: 'Solutions'
+          },
+          {
+            route: '/history',
+            name: 'History'
+          }
+        ]
+        break
+      case '/rules':
+        links = [
+          {
+            route: '/',
+            name: 'Home'
+          },
+          {
+            route: '/play',
+            name: 'Play'
+          },
+          {
+            route: '/solutions',
+            name: 'Solutions'
+          },
+          {
+            route: '/history',
+            name: 'History'
+          }
+        ]
+        break
       case '/history':
         links = [
           {
             route: '/',
             name: 'Home'
+          },
+          {
+            route: '/play',
+            name: 'Play'
+          },
+          {
+            route: '/rules',
+            name: 'Rules'
           },
           {
             route: '/solutions',
@@ -24,6 +72,14 @@ export default class Navbar extends React.Component {
           {
             route: '/',
             name: 'Home'
+          },
+          {
+            route: '/play',
+            name: 'Play'
+          },
+          {
+            route: '/rules',
+            name: 'Rules'
           },
           {
             route: '/history',
@@ -55,6 +111,15 @@ export default class Navbar extends React.Component {
               </span>
         )
       })
+      }
+      {
+      pathname === '/play' ?
+        <span id='reset-container'>
+            <button className='link-button' type='button' onClick={this.props.onResetClick}>
+              Reset
+            </button>
+          </span> :
+        null
       }
       </div>
     )
