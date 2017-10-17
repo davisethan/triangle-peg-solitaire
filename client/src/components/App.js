@@ -23,12 +23,12 @@ const NoMatch = () => (
 const App = () => (
   <div>
     <Switch>
-      <Route exact path='/' component={Home} {...this.props} />
-      <Route exact path='/play' component={Play} {...this.props} />
-      <Route exact path='/rules' component={Rules} {...this.props} />
-      <Route exact path='/history' component={History} {...this.props} />
-      <Route exact path='/solutions' component={Solutions} {...this.props} />
-      <Route component={NoMatch} {...this.props} />
+      <Route exact path='/' component={Home} />
+      <Route exact path='/play' component={Play} />
+      <Route exact path='/rules' component={Rules} />
+      <Route exact path='/history' component={History} />
+      <Route exact path='/solutions' component={Solutions} />
+      <Route component={NoMatch} />
     </Switch>
   </div>
 )
