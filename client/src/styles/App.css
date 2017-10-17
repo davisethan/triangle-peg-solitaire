@@ -1,0 +1,108 @@
+body {
+  background-color: orange;
+}
+
+#home {
+  text-align: center;
+}
+
+#history-row {
+  display: table;
+  width: 100%;
+  padding: 0px 20px 0px 20px;
+}
+
+#text-column {
+  background-color: white;
+  float: left;
+  width: 60%;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+}
+
+#filler-column {
+  float: left;
+  width: 8%;
+}
+
+#photo-column {
+  background-color: white;
+  float: left;
+  width: 27%;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+}
+
+#photo {
+  padding: 20px 20px 0px 20px;
+}
+
+#form-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  padding: 20px 20px 20px 20px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+}
+
+#form-submit {
+  background-color: lightgreen;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  padding: 20px 20px 20px 20px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+}
+
+#solution-form {
+  text-align: center;
+}
+
+#solution-container {
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  padding: 40px 0px 0px 0px;
+}
+
+#no-match {
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+  width: 23%;
+  margin: auto;
+  text-align: center;
+}
+
+.page-title {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.paragraph {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px 20px 10px 20px;
+}
+
+.link-button {
+  background-color: lightblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  padding: 10px 10px 10px 10px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 24px;
+}
+
+.input-filler {
+  padding: 0px 5px 0px 5px;
+}
