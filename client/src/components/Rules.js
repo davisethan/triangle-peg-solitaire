@@ -11,7 +11,7 @@ export default class Rules extends React.Component {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount() => {
     this.getRules()
   }
 
