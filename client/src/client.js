@@ -20,6 +20,10 @@ const fetchSolution = (index) => {
     method: 'post',
     data: {
       index: index
+    },
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     }
   })
     .then((res) => {

@@ -21,7 +21,7 @@ getMongo((err, db) => {
     const webServerUrl = 'http://localhost:3000'
 
     res.header('Access-Control-Allow-Origin', webServerUrl)
-    res.header('Access-Control-Allow-Headers', 'Content-Type')
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept')
     next()
   })
 
