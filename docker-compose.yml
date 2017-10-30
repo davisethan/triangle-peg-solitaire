@@ -11,9 +11,6 @@ services:
     links:
       - mongo
   mongo:
-    image: mongo
+    image: ecdavis15/tsn-mongo
     ports:
       - "27017:27017"
-    volumes:
-      - ./data/db:/data/db
-
