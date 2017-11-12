@@ -1,8 +1,8 @@
-build-web-server:
-	docker build -t ecdavis15/tsn-web-server -f ./client/Dockerfile .
+build-frontend:
+	docker build -t ecdavis15/tsn-frontend -f ./client/Dockerfile .
 
-build-app-server:
-	docker build -t ecdavis15/tsn-app-server -f ./server/Dockerfile .
+build-backend:
+	docker build -t ecdavis15/tsn-backend -f ./server/Dockerfile .
 
 build-mongo:
 	docker build -t ecdavis15/tsn-mongo -f ./data/Dockerfile .
