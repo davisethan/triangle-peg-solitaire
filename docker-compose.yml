@@ -1,16 +1,16 @@
 version: "3"
 services:
   web:
-    image: ecdavis15/tsn-frontend
+    image: osethan/tsn-frontend
     ports:
       - "3000:3000"
   app:
-    image: ecdavis15/tsn-backend
+    image: osethan/tsn-backend
     ports:
       - "3030:3030"
     links:
       - mongo
   mongo:
-    image: ecdavis15/tsn-mongo
+    image: osethan/tsn-mongo
     ports:
       - "27017:27017"
