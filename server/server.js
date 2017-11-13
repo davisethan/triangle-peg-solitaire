@@ -18,9 +18,11 @@ getMongo((err, db) => {
 
   app.use(bodyParser.json())
   app.use((req, res, next) => {
-    const webServerUrl = 'http://localhost:3000'
+    const protocol = req.protocol
+    const host = req.get('host')
+    const frontendUrl = `${protocol}://${host}`
 
-    res.header('Access-Control-Allow-Origin', webServerUrl)
+    res.header('Access-Control-Allow-Origin', frontendUrl)
     res.header('Access-Control-Allow-Headers', 'Content-Type, Accept')
     next()
   })

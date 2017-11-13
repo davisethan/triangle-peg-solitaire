@@ -1,10 +1,12 @@
 import axios from 'axios'
 
-const applicationServerUrl = 'http://localhost:3030'
+const protocol = document.location.protocol
+const host = document.location.host
+const backendUrl = `${protocol}//${host}/tsn/api`
 
 const fetchHistory = () => {
   return axios.request({
-    url: applicationServerUrl + '/history',
+    url: backendUrl + '/history',
     method: 'get'
   })
     .then((res) => {
@@ -16,7 +18,7 @@ const fetchHistory = () => {
 
 const fetchSolution = (index) => {
   return axios.request({
-    url: applicationServerUrl + '/solution',
+    url: backendUrl + '/solution',
     method: 'post',
     data: {
       index: index
@@ -35,7 +37,7 @@ const fetchSolution = (index) => {
 
 const fetchRules = () => {
   return axios.request({
-    url: applicationServerUrl + '/rules',
+    url: backendUrl + '/rules',
     method: 'get'
   })
     .then((res) => {
