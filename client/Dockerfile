@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:carbon-alpine
 
 WORKDIR /opt/webapp
 COPY ./client/public /opt/webapp/public

@@ -1,14 +1,15 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+import fs from 'fs'
 
 import { getMongo } from '../common/db'
 
 const app = express()
-const port = process.env.API_PORT || 3030
+const port = 3030
 
 getMongo((err, db) => {
   if (err) {
-    console.log('Connection error. Exiting...')
+    console.log('Database connection error. Exiting...')
     process.exit(1)
   }
 
@@ -28,15 +29,15 @@ getMongo((err, db) => {
   })
 
   app.get('/history', (req, res) => {
-    const query = {}
-
-    historyColl.findOne(query, (err, doc) => {
+    fs.readFile('./data/history.json', 'utf8', (err, content) => {
       if (err) {
-        console.log('Read error. Exiting...')
+        console.log('File system read error. Exiting...')
         process.exit(1)
       }
 
-      res.json(doc)
+      const history = JSON.parse(content)
+
+      res.json(history)
     })
   })
 
@@ -48,7 +49,7 @@ getMongo((err, db) => {
 
     solutionsColl.findOne(query, (err, doc) => {
       if (err) {
-        console.log('Read error. Exiting...')
+        console.log('Database read error. Exiting...')
         process.exit(1)
       }
 
@@ -59,15 +60,15 @@ getMongo((err, db) => {
   })
 
   app.get('/rules', (req, res) => {
-    const query = {}
-
-    rulesColl.findOne(query, (err, doc) => {
+    fs.readFile('./data/rules.json', 'utf8', (err, content) => {
       if (err) {
-        console.log('Read error. Exiting...')
+        console.log('File system read error. Exiting...')
         process.exit(1)
       }
 
-      res.json(doc)
+      const rules = JSON.parse(content)
+
+      res.json(rules)
     })
   })
 

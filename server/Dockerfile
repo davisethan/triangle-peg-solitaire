@@ -1,9 +1,11 @@
-FROM node:latest
+FROM node:carbon-alpine
 
 WORKDIR /opt/webapp
 COPY ./server/server.js /opt/webapp/server/server.js
 COPY ./common /opt/webapp/common
 COPY ./package.json /opt/webapp/package.json
+COPY ./data/history.json /opt/webapp/data/history.json
+COPY ./data/rules.json /opt/webapp/data/rules.json
 
 RUN yarn install
 RUN ln -s $PWD/node_modules/.bin/babel /usr/bin/babel
