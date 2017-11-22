@@ -40,21 +40,20 @@ export default class Solutions extends React.Component {
 
   render() {
     return (
-      <div>
-        <Navbar {...this.props} />
-        <h1 className='page-title'>Solutions of Triangle Solo Noble</h1>
-        <h3 className='page-title'>There are 438,984 solutions to this classic board game. Go ahead and choose one to view</h3>
-        <form id='solution-form' onSubmit={this.onFormSubmit}>
-          <span className='input-filler'>
-            <input id='form-text' type='text' value={this.state.index} onChange={this.onTextChange} />
-          </span>
-          <span className='input-filler'>
-            <input id='form-submit' type='submit' />
-          </span>
-        </form>
-        <br />
-        <div id='solution-container'>
-          {this.state.solution ? <Solution solution={this.state.solution} /> : null}
+      <div className='container-fluid'>
+        <div className='mt-3'>
+          <Navbar {...this.props} />
+        </div>
+        <div className='text-center'>
+          <h1 className='my-3'>Solutions of Triangle Solo Noble</h1>
+          <h3 className='mb-3'>There are 438,984 solutions to this classic board game. Go ahead and choose one to view.</h3>
+          <form className='form-inline justify-content-center' onSubmit={this.onFormSubmit}>
+            <input className='mr-3 mb-3 p-3 content-container solution-input' type='text' value={this.state.index} onChange={this.onTextChange} />
+            <input className='bg-success mb-3 p-3 content-container solution-input' type='submit' value='Submit' />
+          </form>
+          <div className='mb-3 mx-auto content-container solution-container'>
+            {this.state.solution ? <Solution solution={this.state.solution} /> : null}
+          </div>
         </div>
       </div>
     )

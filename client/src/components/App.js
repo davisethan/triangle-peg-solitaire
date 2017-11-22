@@ -10,12 +10,13 @@ import Rules from './Rules'
 
 import '../styles/App.css'
 
-const NoMatch = () => (
-  <div>
-    <Navbar {...this.props} />
-    <br />
-    <div id='no-match'>
-      <h1 className='page-title'>Page Not Found</h1>
+const NotFound = () => (
+  <div className='container-fluid'>
+    <div className='my-3'>
+      <Navbar />
+    </div>
+    <div className='mx-auto text-center content-container not-found'>
+      <h1>Page Not Found</h1>
     </div>
   </div>
 )
@@ -28,7 +29,7 @@ const App = () => (
       <Route exact path='/rules' component={Rules} />
       <Route exact path='/history' component={History} />
       <Route exact path='/solutions' component={Solutions} />
-      <Route component={NoMatch} />
+      <Route component={NotFound} />
     </Switch>
   </div>
 )

@@ -18,12 +18,16 @@ export default class Navbar extends React.Component {
             name: 'Rules'
           },
           {
+            route: '/history',
+            name: 'History'
+          },
+          {
             route: '/solutions',
             name: 'Solutions'
           },
           {
-            route: '/history',
-            name: 'History'
+            route: '/play',
+            name: 'Reset'
           }
         ]
         break
@@ -38,12 +42,12 @@ export default class Navbar extends React.Component {
             name: 'Play'
           },
           {
-            route: '/solutions',
-            name: 'Solutions'
-          },
-          {
             route: '/history',
             name: 'History'
+          },
+          {
+            route: '/solutions',
+            name: 'Solutions'
           }
         ]
         break
@@ -98,28 +102,58 @@ export default class Navbar extends React.Component {
     }
 
     return (
-      <div id='navbar'>
-        {
-      links.map((link, index) => {
+      <div>
+        <div className='dropdown navbar-dropdown'>
+          <button className='btn btn-lg dropdown-toggle link-button' type='button' data-toggle='dropdown'>
+            Menu
+          </button>
+          <div className='dropdown-menu text-center navbar-dropdown-menu'>
+            {
+      links.map((link, index, array) => {
         return (
-          <span key={index} className='input-filler'>
-                <Link to={link.route}>
-                  <button className='link-button' type='button'>
+          <Link key={index} to={link.route}>
+            {
+          index < array.length - 1 ?
+            <button className='btn btn-lg mb-2 link-button' type='button'>
+                  {link.name}
+                </button> :
+                pathname !== '/play' ?
+                  <button className='btn btn-lg link-button' type='button'>
+                    {link.name}
+                  </button> :
+                  <button className='btn btn-lg link-button' type='button' onClick={this.props.onResetClick}>
                     {link.name}
                   </button>
+          }
+          </Link>
+        )
+      })
+      }
+          </div>
+        </div>
+        {
+      links.map((link, index, array) => {
+        return (
+          <span key={index} className='text-left navbar-inline'>
+                <Link to={link.route}>
+                  {
+          index < array.length - 1 ?
+            <button className='btn btn-lg mr-3 link-button' type='button'>
+                        {link.name}
+                      </button> :
+                      pathname !== '/play' ?
+                        <button className='btn btn-lg link-button' type='button'>
+                          {link.name}
+                        </button> :
+                        <button className='btn btn-lg link-button' type='button' onClick={this.props.onResetClick}>
+                          {link.name}
+                        </button>
+            
+          }
                 </Link>
               </span>
         )
       })
-      }
-      {
-      pathname === '/play' ?
-        <span id='reset-container'>
-            <button className='link-button' type='button' onClick={this.props.onResetClick}>
-              Reset
-            </button>
-          </span> :
-        null
       }
       </div>
     )

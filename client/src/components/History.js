@@ -26,23 +26,28 @@ export default class History extends React.Component {
 
   render() {
     return (
-      <div>
-        <Navbar {...this.props} />
-        <h1 className='page-title'>History of Triangle Solo Noble</h1>
-        <div id='history-row'>
-          <div id='text-column'>
-            {
-              this.state.history.text.map((blurb, index) => (
-                <p key={index} className='paragraph'>{blurb}</p>
-              ))
-            }
-          </div>
-          <div id='filler-column'>
-            <p></p>
-          </div>
-          <div id='photo-column'>
-            <img id='photo' src='/images/first-tsn.jpg' alt='' />
-            <p className='paragraph'>{this.state.history.photo}</p>
+      <div className='container-fluid'>
+        <div className='mt-3'>
+          <Navbar {...this.props} />
+        </div>
+        <div className='text-center'>
+          <h1 className='my-3'>History of Triangle Solo Noble</h1>
+          <div className='row'>
+            <div className='col-sm-6 offset-sm-1 align-self-start content-container history-container'>
+              {
+      this.state.history.text.map((blurb, index) => {
+        return (
+        index === 0 ?
+          <p key={index} className='mt-3'>{blurb}</p> :
+          <p key={index}>{blurb}</p>
+        )
+      })
+      }
+            </div>
+            <div className='col-sm-3 offset-sm-1 align-self-start content-container history-container'>
+              <img className='img-fluid rounded border border-dark my-3' src='/images/first-tsn.jpg' alt='' />
+              <p>{this.state.history.photo}</p>
+            </div>
           </div>
         </div>
       </div>

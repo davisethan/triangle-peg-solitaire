@@ -446,11 +446,15 @@ export default class Play extends React.Component {
 
   render() {
     return (
-      <div>
-        <Navbar onResetClick={this.onResetClick} {...this.props} />
-        <h1 className='page-title'>Play Triangle Solo Noble</h1>
-        <div id='play-container'>
-          <Board marbles={this.state.marbles} onMarbleClick={this.onMarbleClick} />
+      <div className='container-fluid'>
+        <div className='mt-3'>
+          <Navbar onResetClick={this.onResetClick} {...this.props} />
+        </div>
+        <div className='text-center'>
+          <h1 className='my-3'>Play Triangle Solo Noble</h1>
+          <div className='mx-auto mb-3 content-container play-container'>
+            <Board marbles={this.state.marbles} onMarbleClick={this.onMarbleClick} />
+          </div>
         </div>
       </div>
     )
