@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const protocol = document.location.protocol
 const host = document.location.host
-const backendUrl = `${protocol}//${host}/tsn/api`
+const backendUrl = `${protocol}//${host}/real/tsn/api`
 
 const fetchHistory = () => {
   return axios.request({
