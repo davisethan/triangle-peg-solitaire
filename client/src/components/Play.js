@@ -72,6 +72,8 @@ export default class Play extends React.Component {
   }
 
   onMarbleClick = (event) => {
+    event.preventDefault()
+
     const marbleIdx = Number(event.target.getAttribute('index'))
     let marbles
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class Board extends React.Component {
   render() {
-    const screenWidth = window.innerWidth
+    const screenWidth = window.screen.width
     const margin = 16
     const padding = 16
     let radius,
