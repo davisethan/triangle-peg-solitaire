@@ -4,8 +4,8 @@
 
 ### Steps
 > $ cd [root]/data/solutions
-$ make build-solutions
-$ HOST=localhost node index.js
-$ cd ../..
-$ make build-mongo
-$ docker push osethan/tsn-mongo
+> $ make build-solutions
+> $ HOST=localhost node index.js
+> $ cd ../..
+> $ make build-mongo
+> $ docker push osethan/tsn-mongo
