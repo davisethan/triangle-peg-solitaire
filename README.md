@@ -12,4 +12,4 @@ In order to host this website, see the instructions below
 > Run the docker-compose file\
 > $ docker-compose up
 
-> Visit http://localhost:3000 in your web browser
+> Visit http://<span></span>localhost:3000 in your web browser
