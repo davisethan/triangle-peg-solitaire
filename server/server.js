@@ -6,9 +6,12 @@ import { getMongo } from '../common/db'
 
 const app = express()
 const port = 3030
+const host = ''
 
-getMongo((err, db) => {
+getMongo(host, (err, db) => {
   if (err) {
+    console.log(err)
+
     console.log('Database connection error. Exiting...')
     process.exit(1)
   }
@@ -19,9 +22,7 @@ getMongo((err, db) => {
 
   app.use(bodyParser.json())
   app.use((req, res, next) => {
-    const protocol = req.protocol
-    const host = req.get('host')
-    const frontendUrl = `${protocol}://${host}`
+    const frontendUrl = 'http://localhost:3000'
 
     res.header('Access-Control-Allow-Origin', frontendUrl)
     res.header('Access-Control-Allow-Headers', 'Content-Type, Accept')

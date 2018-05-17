@@ -35,14 +35,14 @@ export default class History extends React.Component {
           <div className='row'>
             <div className='col-sm-6 offset-sm-1 align-self-start content-container history-container'>
               {
-      this.state.history.text.map((blurb, index) => {
-        return (
-        index === 0 ?
-          <p key={index} className='mt-3'>{blurb}</p> :
-          <p key={index}>{blurb}</p>
-        )
-      })
-      }
+                this.state.history.text.map((blurb, index) => {
+                  return (
+                    index === 0 ?
+                      <p key={index} className='mt-3'>{blurb}</p> :
+                      <p key={index}>{blurb}</p>
+                  )
+                })
+              }
             </div>
             <div className='col-sm-3 offset-sm-1 align-self-start content-container history-container'>
               <img className='img-fluid rounded border border-dark my-3' src='/images/first-tsn.jpg' alt='' />

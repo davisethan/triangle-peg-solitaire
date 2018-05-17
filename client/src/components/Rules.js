@@ -37,10 +37,10 @@ export default class Rules extends React.Component {
             <div className='mx-auto px-3 mb-3 content-container rules-standards'>
               <p className='font-weight-bold pt-3'>Standards</p>
               {
-      this.state.rules.standards.map((standard, index) => (
-        <p key={index}>{standard}</p>
-      ))
-      }
+                this.state.rules.standards.map((standard, index) => (
+                  <p key={index}>{standard}</p>
+                ))
+              }
             </div>
           </div>
         </div>

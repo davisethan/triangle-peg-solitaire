@@ -109,36 +109,36 @@ export default class Navbar extends React.Component {
           </button>
           <div className='dropdown-menu text-center navbar-dropdown-menu'>
             {
-      links.map((link, index, array) => {
-        return (
-          <Link key={index} to={link.route}>
-            {
-          index < array.length - 1 ?
-            <button className='btn btn-lg mb-2 link-button' type='button'>
-                  {link.name}
-                </button> :
-                pathname !== '/play' ?
-                  <button className='btn btn-lg link-button' type='button'>
-                    {link.name}
-                  </button> :
-                  <button className='btn btn-lg link-button' type='button' onClick={this.props.onResetClick}>
-                    {link.name}
-                  </button>
-          }
-          </Link>
-        )
-      })
-      }
+              links.map((link, index, array) => {
+                return (
+                  <Link key={index} to={link.route}>
+                    {
+                      index < array.length - 1 ?
+                        <button className='btn btn-lg mb-2 link-button' type='button'>
+                          {link.name}
+                        </button> :
+                        pathname !== '/play' ?
+                          <button className='btn btn-lg link-button' type='button'>
+                            {link.name}
+                          </button> :
+                          <button className='btn btn-lg link-button' type='button' onClick={this.props.onResetClick}>
+                            {link.name}
+                          </button>
+                    }
+                  </Link>
+                )
+              })
+            }
           </div>
         </div>
         {
-      links.map((link, index, array) => {
-        return (
-          <span key={index} className='text-left navbar-inline'>
+          links.map((link, index, array) => {
+            return (
+              <span key={index} className='text-left navbar-inline'>
                 <Link to={link.route}>
                   {
-          index < array.length - 1 ?
-            <button className='btn btn-lg mr-3 link-button' type='button'>
+                    index < array.length - 1 ?
+                      <button className='btn btn-lg mr-3 link-button' type='button'>
                         {link.name}
                       </button> :
                       pathname !== '/play' ?
@@ -148,13 +148,12 @@ export default class Navbar extends React.Component {
                         <button className='btn btn-lg link-button' type='button' onClick={this.props.onResetClick}>
                           {link.name}
                         </button>
-            
-          }
+                  }
                 </Link>
               </span>
-        )
-      })
-      }
+            )
+          })
+        }
       </div>
     )
   }

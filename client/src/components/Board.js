@@ -31,43 +31,43 @@ export default class Board extends React.Component {
       <div>
         <svg height={height} width={width}>
           {
-      this.props.marbles.map((marble, index) => {
-        switch (index) {
-          case 0:
-            return <circle key={index} cx={9 * radius + padding} cy={radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 1:
-            return <circle key={index} cx={7 * radius + padding} cy={3 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 2:
-            return <circle key={index} cx={11 * radius + padding} cy={3 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 3:
-            return <circle key={index} cx={5 * radius + padding} cy={5 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 4:
-            return <circle key={index} cx={9 * radius + padding} cy={5 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 5:
-            return <circle key={index} cx={13 * radius + padding} cy={5 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 6:
-            return <circle key={index} cx={3 * radius + padding} cy={7 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 7:
-            return <circle key={index} cx={7 * radius + padding} cy={7 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 8:
-            return <circle key={index} cx={11 * radius + padding} cy={7 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 9:
-            return <circle key={index} cx={15 * radius + padding} cy={7 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 10:
-            return <circle key={index} cx={radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 11:
-            return <circle key={index} cx={5 * radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 12:
-            return <circle key={index} cx={9 * radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 13:
-            return <circle key={index} cx={13 * radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          case 14:
-            return <circle key={index} cx={17 * radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
-          default:
-            return
-        }
-      })
-      }
+            this.props.marbles.map((marble, index) => {
+              switch (index) {
+                case 0:
+                  return <circle key={index} cx={9 * radius + padding} cy={radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 1:
+                  return <circle key={index} cx={7 * radius + padding} cy={3 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 2:
+                  return <circle key={index} cx={11 * radius + padding} cy={3 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 3:
+                  return <circle key={index} cx={5 * radius + padding} cy={5 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 4:
+                  return <circle key={index} cx={9 * radius + padding} cy={5 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 5:
+                  return <circle key={index} cx={13 * radius + padding} cy={5 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 6:
+                  return <circle key={index} cx={3 * radius + padding} cy={7 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 7:
+                  return <circle key={index} cx={7 * radius + padding} cy={7 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 8:
+                  return <circle key={index} cx={11 * radius + padding} cy={7 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 9:
+                  return <circle key={index} cx={15 * radius + padding} cy={7 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 10:
+                  return <circle key={index} cx={radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 11:
+                  return <circle key={index} cx={5 * radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 12:
+                  return <circle key={index} cx={9 * radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 13:
+                  return <circle key={index} cx={13 * radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                case 14:
+                  return <circle key={index} cx={17 * radius + padding} cy={9 * radius + padding} r={r} fill={marble.fill} stroke={marble.stroke} strokeWidth={strokeWidth} index={index} onClick={this.props.onMarbleClick} />
+                default:
+                  return
+              }
+            })
+          }
         </svg>
       </div>
     )

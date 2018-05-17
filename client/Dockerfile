@@ -5,9 +5,6 @@ COPY ./client/public /opt/webapp/public
 COPY ./client/src /opt/webapp/src
 COPY ./client/package.json /opt/webapp/package.json
 COPY ./client/server.js /opt/webapp/server.js
-COPY ./client/kube-pathname.sh /opt/webapp/kube-pathname.sh
-
-RUN chmod +x ./kube-pathname.sh && ./kube-pathname.sh
 
 RUN yarn install
 RUN yarn build

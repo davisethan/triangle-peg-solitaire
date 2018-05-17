@@ -1,10 +1,22 @@
-import mongodb from 'mongodb'
+var mongodb = require('mongodb')
 
-const MongoClient = mongodb.MongoClient
-const connectionStr = 'mongodb://tsn-mongo-svc:8080/tsn'
+var MongoClient = mongodb.MongoClient
 
-export const getMongo = (cb) => {
-  MongoClient.connect(connectionStr, (err, db) => {
+exports.getMongo = function(host, cb) {
+  var connectionStr = ''
+
+  if (host) {
+    if (host === 'localhost') {
+      connectionStr = 'mongodb://' + host + ':27017/tsn'
+    } else {
+      console.log('Unrecognized host. Exiting...')
+      process.exit(1)
+    }
+  } else {
+    connectionStr = 'mongodb://mongo/tsn'
+  }
+
+  MongoClient.connect(connectionStr, function(err, db) {
     cb(err, db)
   })
 }
