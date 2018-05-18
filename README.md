@@ -1,7 +1,7 @@
 # Triangle Solo Noble
 
 ### Desription
-Play the game, and view rules, history, and solutions of Triangle Solo Noble in this interactive webapp
+Play the board game, and view rules, history, and solutions of Triangle Solo Noble in this interactive webapp
 
 ### Hosting
 In order to host this website, see the instructions below
