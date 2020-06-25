@@ -1,15 +1,13 @@
 # Triangle Solo Noble
 
-### Desription
-Play the board game, and view rules, history, and solutions of Triangle Solo Noble in this interactive webapp
+**Author**: Ethan Davis\
+**Version**: 1.0.0
 
-### Hosting
-In order to host this website, see the instructions below
+## Overview
+See history, rules, solutions of Triangle Peg Solitaire.
 
-> Git clone the master version of this repository\
-> $ git clone git@<span></span>github.com:osethan/TriangleSoloNoble.git
+## Architecture
+React.js front-end, Bootstrap styles, AWS S3 back-end.
 
-> Run the docker-compose file\
-> $ docker-compose up
-
-> Visit http://<span></span>localhost:3000 in your web browser
+## Website
+https://tps.s3-us-west-2.amazonaws.com/index.html
