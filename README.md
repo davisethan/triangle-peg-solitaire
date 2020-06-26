@@ -10,4 +10,4 @@ See history, rules, solutions of Triangle Peg Solitaire.
 React.js front-end, Bootstrap styles, AWS S3 back-end.
 
 ## Website
-https://tps.s3-us-west-2.amazonaws.com/index.html
+https://triangle-peg-solitaire.s3-us-west-2.amazonaws.com/index.html
