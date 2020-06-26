@@ -29,12 +29,12 @@ class Solutions extends React.Component {
       return
     }
     // Is in range
-    if (parseInt(formSolution) < 0 || parseInt(formSolution) > this.SOLUTIONS_COUNT) {
+    if (parseInt(formSolution) < 1 || parseInt(formSolution) > this.SOLUTIONS_COUNT) {
       return
     }
 
     this.setState({
-      iframeSolution: formSolution
+      iframeSolution: formSolution - 1
     });
   }
 
