@@ -1,13 +1,9 @@
-# Triangle Solo Noble
-
+# Triangle Peg Solitaire
 **Author**: Ethan Davis\
-**Version**: 1.0.0
-
-## Overview
-See history, rules, solutions of Triangle Peg Solitaire.
+**Description:** Triangle Peg Solitaire history and solutions
 
 ## Architecture
-React.js front-end, Bootstrap styles, AWS S3 back-end.
+Python solution finder, AWS S3 back-end, React.js front-end, Bootstrap styles
 
 ## Website
-https://triangle-peg-solitaire.s3-us-west-2.amazonaws.com/index.html
+https://bit.ly/2UuGeDc
