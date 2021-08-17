@@ -1,6 +1,5 @@
 import os
 
-
 class Game:
     """
     Triangle Peg Solitaire find all solutions by backtracking algorithm
