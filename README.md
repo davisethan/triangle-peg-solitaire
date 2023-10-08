@@ -3,7 +3,7 @@
 **Description:** Triangle Peg Solitaire history and solutions
 
 ## Architecture
-Python solution finder, AWS S3 back-end, React.js front-end, Bootstrap styles
+Python solution finder, AWS S3 back-end, React.js and Bootstrap front-end
 
 ## Website
 https://bit.ly/2UuGeDc
